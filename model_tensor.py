@@ -92,8 +92,8 @@ data0 = pa.Table.from_pylist(data)
 scan0 = Scan(data0)
 # print(scan0.next())
 projection0 = Projection(scan0, [0, 2, 3])
-selection0 = Selection(projection0, lambda t: t[:, 1] < 39)
-# selection0 = Selection(projection0, lambda t: t[:, 2] == 177.2)
+# selection0 = Selection(projection0, lambda t: t[:, 1] < 39)
+selection0 = Selection(projection0, lambda t: t[:, 2] == 177.2)
 
 # 执行查询计划
 while True:

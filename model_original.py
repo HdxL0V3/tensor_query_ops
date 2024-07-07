@@ -87,25 +87,25 @@ data2 = [
     {'id': 3, 'city': 'Paris'}
 ]
 
-# # 构建查询计划
-# scan1 = Scan(data1)
-# scan2 = Scan(data2)
-# join = Join(scan1, scan2, lambda t1, t2: t1['id'] == t2['id'])
-# projection = Projection(join, ['name', 'age', 'city'])
-# selection = Selection(projection, lambda t: t['age'] <= 30)
+# 构建查询计划
+scan1 = Scan(data1)
+scan2 = Scan(data2)
+join = Join(scan1, scan2, lambda t1, t2: t1['id'] == t2['id'])
+projection = Projection(join, ['name', 'age', 'city'])
+selection = Selection(projection, lambda t: t['age'] <= 39)
 
-# # 执行查询计划
-# while True:
-#     tuple = selection.next()
-#     if tuple is None:
-#         break
-#     print(tuple)
-scan0 = Scan(data1)
-projection0 = Projection(scan0, ['name','age'])
-# selection0 = Selection(projection0, lambda t: t['age'] < 38)
-selection0 = Selection(projection0, lambda t: t['age'] < 38 & t['age'] > 35)
+# 执行查询计划
 while True:
-    tuple = selection0.next()
+    tuple = selection.next()
     if tuple is None:
         break
     print(tuple)
+# scan0 = Scan(data1)
+# projection0 = Projection(scan0, ['name','age'])
+# # selection0 = Selection(projection0, lambda t: t['age'] < 38)
+# selection0 = Selection(projection0, lambda t: t['age'] < 38 & t['age'] > 35)
+# while True:
+#     tuple = selection0.next()
+#     if tuple is None:
+#         break
+#     print(tuple)
