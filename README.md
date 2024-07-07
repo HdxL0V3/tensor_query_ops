@@ -1,9 +1,7 @@
-### 仓库文件
+### 仓库文件内容
 
 model_original.py为算子中不含有tensor操作的迭代器模型实现。
 
-model_tensor.py则是算子均调用tensor操作实现，目前实现了scan、projection和selection等算子基本功能，可以执行简单物理查询计划例子。
+model_tensor.py则是算子均调用tensor操作实现，对应普通版本的各个算子功能。
 
-test.ipynb在测试和调试过程中使用。
-
-其余为测试过程中算子生成/需要调用的tensor操作模型。
+其他文件用于测试和调试过程中使用，也包含测试过程中脚本生成的或者需要调用的部分文件。
